@@ -1,20 +1,28 @@
+'''
+Basically this piece of code dump the
+Database and save the SQL file in inside
+one directory.
+@author: Swapnil sahu
+'''
+
+
 import os
 import datetime
 import time
 
 #YOUR DB HOST
-dbhost = 'DB_HOST'
+dbhost = "DB_HOST"
 #YOUR DB USER
-dbuser = 'DB_USER'
+dbuser = "DB_USER"
 #YOUR DB PASSWORD
-dbpassword = 'DB_PASSWORD'
+dbpassword = "DB_PASSWORD"
 #YOUR DB NAME
-dbname = 'DB_NAME'
+dbname = "DB_NAME"
 #YOUR TABLE NAME
-tablename = 'TABLE_NAME'
+tablename = "TABLE_NAME"
 
 #PATH WHERE YOU WANT TO STORE YOUR BACKUP
-backup = 'db_backup/'
+backup = "db_backup/"
 
 datetime = time.strftime('%d%m%Y%H%M%S')
 
@@ -22,6 +30,6 @@ todaybackup = backup + datetime
 
 os.mkdir(todaybackup)
 
-os.system("mysqldump -h " + dbhost + " -u " + dbuser + " -p" + dbpassword + " " + dbname + tablename + " > " + todaybackup + "/" + tablename + ".sql")
+os.system("mysqldump -h {} -u {} -p{} {}{} > {}/{}.sql".format(dbhost, dbuser, dbpassword, dbname, tablename, todaybackup, tablename))
 
 print("backup created in: " + todaybackup)
