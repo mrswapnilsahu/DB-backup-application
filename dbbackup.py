@@ -22,6 +22,6 @@ todaybackup = backup + datetime
 
 os.mkdir(todaybackup)
 
-os.system("mysqldump -h " + dbhost + " -u " + dbuser + " -p" + dbpassword + " " + dbname + tablename + " > " + todaybackup + "/" + tablename + ".sql")
+os.system("mysqldump -h {} -u {} -p{} {}{} > {}/{}.sql".format(dbhost, dbuser, dbpassword, dbname, tablename, todaybackup, tablename))
 
 print("backup created in: " + todaybackup)
